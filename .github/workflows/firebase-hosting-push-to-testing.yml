@@ -32,5 +32,5 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RT_CHATROOM_JS }}
-          channelId: auto
+          channelId: preview-channel
           projectId: rt-chatroom-js
