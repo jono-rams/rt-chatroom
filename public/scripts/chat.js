@@ -11,5 +11,5 @@ class Chatroom {
   }
 }
 
-const chatRoom = new ChatRoom('gaming', 'shaun');
+const chatRoom = new Chatroom('gaming', 'shaun');
 console.log(chatRoom);
