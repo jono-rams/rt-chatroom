@@ -27,3 +27,7 @@ li{
   text-align: center;
   margin: 20px auto !important;
 }
+.chat-window{
+  overflow-y: auto;
+  height: 400px !important;
+}
