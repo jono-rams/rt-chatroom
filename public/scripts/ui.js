@@ -9,7 +9,7 @@ class ChatUI {
     this.list.innerHTML = "";
   }
   render(data) {
-    const when = dateFns.distanceInWordsToNow(
+    const when = dateFns.formatDistanceToNow(
       data.created_at.toDate(),
       {
         addSuffix: true
@@ -28,7 +28,7 @@ class ChatUI {
   update(timeData) {
     const elements = Array.from(this.list.getElementsByClassName("time"));
     elements.map((el, i) => {
-      const when = dateFns.distanceInWordsToNow(
+      const when = dateFns.formatDistanceToNow(
         timeData[i].created_at.toDate(),
         {
           addSuffix: true
