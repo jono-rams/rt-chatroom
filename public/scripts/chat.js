@@ -47,8 +47,3 @@ class Chatroom {
     }
   }
 }
-
-const chatRoom = new Chatroom('general', 'shaun');
-chatRoom.getChats((data) => {
-  console.log(data);
-})
