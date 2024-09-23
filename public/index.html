@@ -12,7 +12,7 @@
 
   <!-- container & title -->
 <div class="container my-4">
-  <h1 class="my-4 text-center">Chatroom</h1>
+  <h1 class="my-4 text-center text-light">Chatroom</h1>
 
   <!-- buttons for chatroom -->
   <div class="chat-rooms mb-3 text-center">
@@ -42,7 +42,7 @@
   </form>
 
   <!-- update name form -->
-   <div class="update-name my-3"></div>
+   <form class="update-name my-3">
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text">Update name:</div>
@@ -52,10 +52,11 @@
         <input type="submit" class="btn" value="update">
       </div>
     </div>
-    <div class="update-msg"></div>
+    <div class="update-msg text-light"></div>
   </form>
 </div>
   
+  <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
   <script>
