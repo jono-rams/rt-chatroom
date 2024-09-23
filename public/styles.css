@@ -23,3 +23,7 @@ body{
 li{
   background: #eee !important;
 }
+.update-msg{
+  text-align: center;
+  margin: 20px auto !important;
+}
