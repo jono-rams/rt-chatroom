@@ -22,4 +22,20 @@ class Chatroom {
     const response = await this.chats.add(chat);
     return response;
   }
+  getChats(callback){
+    this.chats
+      .onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            // update the ui
+            callback(change.doc.data());
+          }
+        })
+      });
+  }
 }
+
+const chatRoom = new Chatroom('gaming', 'shaun');
+chatRoom.getChats((data) => {
+  console.log(data);
+})
