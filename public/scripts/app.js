@@ -3,6 +3,7 @@ const chatList = document.querySelector('.chat-list');
 const newChatForm = document.querySelector('.new-chat');
 const updateNameForm = document.querySelector('.update-name');
 const updateMsg = document.querySelector('.update-msg');
+const rooms = document.querySelector('.chat-rooms');
 
 // add a new chat
 newChatForm.addEventListener('submit', e => {
@@ -30,6 +31,15 @@ updateNameForm.addEventListener('submit', e => {
     updateMsg.innerText = `Your name was successfully changed to ${newName}`;
     setTimeout(() => updateMsg.innerText = '', 1500)
   }
+});
+
+// update chat room
+rooms.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON') {
+    chatUI.clear();
+    chatRoom.updateRoom(e.target.getAttribute('id'));
+    chatRoom.getChats(data => chatUI.render(data), timeData => chatUI.update(timeData));
+  } 
 });
 
 // check local storage for a username

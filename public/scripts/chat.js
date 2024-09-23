@@ -61,5 +61,8 @@ class Chatroom {
     if (this.unsub) {
       this.unsub();
     }
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 }
