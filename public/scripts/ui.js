@@ -22,4 +22,16 @@ class ChatUI {
 
     this.list.innerHTML += html;
   }
+  update(timeData) {
+    const elements = Array.from(this.list.getElementsByClassName("time"));
+    elements.map((el, i) => {
+      const when = dateFns.distanceInWordsToNow(
+        timeData[i].created_at.toDate(),
+        {
+          addSuffix: true
+        }
+      );
+      el.textContent = when;
+    })
+  }
 }

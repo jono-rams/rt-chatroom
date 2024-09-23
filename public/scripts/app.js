@@ -42,4 +42,4 @@ const chatUI = new ChatUI(chatList);
 const chatRoom = new Chatroom('general', username);
 
 // get chats and render
-chatRoom.getChats(data => chatUI.render(data));
+chatRoom.getChats(data => chatUI.render(data), timeData => chatUI.update(timeData));

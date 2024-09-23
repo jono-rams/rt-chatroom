@@ -9,6 +9,7 @@ class Chatroom {
     this.username = username;
     this.chats = db.collection('chats');
     this.unsub;
+    this.interval;
   }
   async addChat(message) {
     // format a chat object
@@ -23,7 +24,7 @@ class Chatroom {
     const response = await this.chats.add(chat);
     return response;
   }
-  getChats(callback) {
+  getChats(callback, intervalCallback) {
     this.unsub = this.chats
       .where('room', '==', this.room)
       .orderBy('created_at', 'asc')
@@ -35,6 +36,21 @@ class Chatroom {
           }
         })
       });
+
+    this.interval = setInterval(() => {
+      this.chats
+        .where('room', '==', this.room)
+        .orderBy('created_at', 'asc')
+        .get()
+        .then(snapshot => {
+          const docs = [];
+          snapshot.forEach(doc => {
+            docs.push(doc.data());
+          });
+          intervalCallback(docs);
+        })
+        .catch(err => console.error(err));
+    }, 90000);
   }
   updateName(username) {
     this.username = username;
